@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "redpill": {
+      "command": "npx",
+      "args": ["-y", "redpill-mcp"],
+      "env": {
+        "REDPILL_ALLOW_DECLINE": "0",
+        "REDPILL_OBSERVE_ONLY": "0",
+        "REDPILL_PERSONA_BACKEND": "stub"
+      }
+    }
+  }
+}

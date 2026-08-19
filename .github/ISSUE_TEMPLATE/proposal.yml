@@ -1,0 +1,37 @@
+name: Proposal
+description: Propose a feature, privacy improvement, or roadmap change
+title: "proposal: "
+labels: ["proposal", "triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Describe the operator or contributor need, not only a solution.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Consent, privacy, and security impact
+      description: List any new data, network calls, authorization, or defaults.
+    validations:
+      required: true
+  - type: dropdown
+    id: milestone
+    attributes:
+      label: Likely roadmap stage
+      options:
+        - v0.1 - Public MCP
+        - v0.2 - Consent telemetry
+        - v0.3 - Hosted MCP
+        - v0.4 - Discovery site
+        - Not sure
+    validations:
+      required: true

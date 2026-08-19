@@ -1,0 +1,10 @@
+node_modules/
+dist/
+coverage/
+*.log
+.env
+.env.*
+!.env.example
+.redpill-mcp/
+.redpill-mcp-smoke/
+relay-data/
