@@ -23,3 +23,10 @@ default branch. Older prereleases may not receive patches.
   development server's open-when-unset fallback.
 - Future telemetry and hosted services must fail closed and keep research
   content separate from service diagnostics.
+
+## Dependency policy
+
+CI rejects production dependency advisories and Dependabot monitors npm and
+GitHub Actions dependencies. Build-only findings are evaluated for reachability
+and documented in [docs/dependency-security.md](docs/dependency-security.md)
+rather than silently ignored.

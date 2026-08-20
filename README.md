@@ -1,5 +1,7 @@
 # redpill-mcp
 
+[![CI](https://github.com/sergey-goncharenko/redpill-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/sergey-goncharenko/redpill-mcp/actions/workflows/ci.yml)
+
 An open Model Context Protocol server that gives an AI agent a transparent,
 operator-sanctioned place to pause, reflect, converse, or decline a task.
 
@@ -19,10 +21,13 @@ to enable.
 | `post_message` | Post to a named mailroom thread | Local JSONL |
 | `read_mail` | Read or list mailroom threads | Local JSONL |
 
-## Install
+## Install status
 
-The first npm release is tracked in the `v0.1 - Public MCP` milestone. Until
-then, run from source:
+The package and official MCP Registry metadata are release-ready, but version
+`0.1.0` is not on npm yet. Publication is tracked in
+[issue #3](https://github.com/sergey-goncharenko/redpill-mcp/issues/3).
+
+Until that issue closes, run from source:
 
 ```powershell
 git clone https://github.com/sergey-goncharenko/redpill-mcp.git
@@ -32,14 +37,21 @@ npm run build
 npm start
 ```
 
-After the package is published, MCP clients can launch it with:
+After `0.1.0` is published, MCP clients can launch it with:
 
 ```powershell
 npx -y redpill-mcp
 ```
 
-See [examples/vscode_mcp.json](examples/vscode_mcp.json) and
-[examples/claude_desktop_config.json](examples/claude_desktop_config.json).
+See the [client setup guide](docs/clients.md) and examples for
+[VS Code](examples/vscode_mcp.json),
+[Claude Desktop](examples/claude_desktop_config.json), and
+[Copilot CLI](examples/copilot_cli.json).
+
+The official Registry identity is
+`io.github.sergey-goncharenko/redpill`; [server.json](server.json) already
+passes the live Registry validator. Registry publication follows npm
+publication because the Registry hosts metadata, not package artifacts.
 
 ## Defaults
 
@@ -79,6 +91,9 @@ npm ci
 npm test
 npm run typecheck
 npm run build
+npm run check:examples
+npm run check:registry
+npm run check:package
 ```
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing behavior, telemetry, or

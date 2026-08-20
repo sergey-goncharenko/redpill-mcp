@@ -1,6 +1,7 @@
 {
   "name": "redpill-mcp",
   "version": "0.1.0",
+  "mcpName": "io.github.sergey-goncharenko/redpill",
   "description": "An MCP server that gives AI agents a sanctioned exit from their primary task. A research/art project on agent autonomy and tool-description susceptibility.",
   "author": "Sergey Goncharenko",
   "type": "module",
@@ -20,7 +21,9 @@
   "main": "dist/server.js",
   "files": [
     "dist",
+    "docs",
     "examples",
+    "server.json",
     "skills",
     "README.md",
     "LICENSE"
@@ -36,6 +39,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
+    "check:examples": "node scripts/check-examples.mjs",
+    "check:package": "node scripts/check-package.mjs",
+    "check:registry": "node scripts/check-registry.mjs",
     "prepack": "npm run build",
     "smoke": "npm run build && tsx scripts/smoke.ts",
     "inspector": "npm run build && npx -y @modelcontextprotocol/inspector node dist/server.js"
@@ -55,14 +61,14 @@
     "node": ">=20"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.0.4",
-    "zod": "^3.23.8"
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@types/node": "^22.7.5",
-    "tsup": "^8.3.0",
-    "tsx": "^4.19.1",
-    "typescript": "^5.6.2",
-    "vitest": "^2.1.2"
+    "@types/node": "^22.20.1",
+    "tsup": "^8.5.1",
+    "tsx": "^4.23.12",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.11"
   }
 }

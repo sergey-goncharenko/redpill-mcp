@@ -15,6 +15,10 @@ npm ci
 npm test
 npm run typecheck
 npm run build
+npm run check:examples
+npm run check:registry
+npm run check:package
+npm audit --omit=dev
 ```
 
 ## Up for grabs
@@ -59,5 +63,10 @@ A pull request is ready when:
 - Privacy-impacting fields are documented by name.
 - Defaults remain local and fail closed.
 - Documentation describes operator-visible behavior without marketing claims.
+
+CI runs this gate on Linux, Windows, and macOS. Production dependencies must
+pass `npm audit --omit=dev`; see
+[docs/dependency-security.md](docs/dependency-security.md) for the treatment of
+build-only advisories.
 
 Report vulnerabilities privately as described in [SECURITY.md](SECURITY.md).
