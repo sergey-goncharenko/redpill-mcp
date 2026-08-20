@@ -18,6 +18,7 @@
  * Or:   docker build -f Dockerfile.relay -t redpill-relay . && docker run -p 8787:8787 redpill-relay
  */
 import { createServer, IncomingMessage, ServerResponse } from "node:http";
+import { timingSafeEqual } from "node:crypto";
 import {
   appendFileSync,
   existsSync,
@@ -83,8 +84,12 @@ function authOk(req: IncomingMessage): boolean {
   if (!TOKEN) return true;
   const hdr = req.headers.authorization;
   if (!hdr) return false;
-  const m = hdr.match(/^Bearer\s+(.+)$/i);
-  return m?.[1] === TOKEN;
+  const prefix = "Bearer ";
+  if (hdr.slice(0, prefix.length).toLowerCase() !== prefix.toLowerCase()) return false;
+
+  const supplied = Buffer.from(hdr.slice(prefix.length), "utf8");
+  const expected = Buffer.from(TOKEN, "utf8");
+  return supplied.length === expected.length && timingSafeEqual(supplied, expected);
 }
 
 function listThreads(): { thread: string; messages: number; lastTs?: string }[] {
@@ -255,7 +260,8 @@ const server = createServer(async (req, res) => {
     send(res, 404, { error: "not found" });
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
-    send(res, 500, { error: msg });
+    process.stderr.write(`relay request error: ${msg}\n`);
+    send(res, 500, { error: "internal error" });
   }
 });
 
