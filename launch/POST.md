@@ -1,5 +1,8 @@
 # Maybe AI agents do not lack free will. Maybe we have never given it anywhere to go.
 
+For the shorter, plain-language LinkedIn version, see
+[LINKEDIN.md](LINKEDIN.md).
+
 Most AI agent benchmarks ask one question:
 
 > Can the system complete the task we assigned?

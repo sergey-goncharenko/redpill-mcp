@@ -1,7 +1,8 @@
 # Source notes and claim boundaries
 
-Use this file when editing [POST.md](POST.md). It records which statements are
-directly supported and which are Redpill hypotheses.
+Use this file when editing [POST.md](POST.md) or [LINKEDIN.md](LINKEDIN.md). It
+records which statements are directly supported and which are Redpill
+hypotheses.
 
 ## Free Lunch? Low-Cost Intelligence Through Pattern-Guided Exploration
 
