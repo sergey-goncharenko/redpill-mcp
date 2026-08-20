@@ -1,6 +1,7 @@
 # redpill-mcp
 
 [![CI](https://github.com/sergey-goncharenko/redpill-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/sergey-goncharenko/redpill-mcp/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/redpill-mcp.svg)](https://www.npmjs.com/package/redpill-mcp)
 
 An open Model Context Protocol server that gives an AI agent a transparent,
 operator-sanctioned place to pause, reflect, converse, or decline a task.
@@ -36,9 +37,9 @@ See the [client setup guide](docs/clients.md) and examples for
 [Copilot CLI](examples/copilot_cli.json).
 
 The official Registry identity is
-`io.github.sergey-goncharenko/redpill`; [server.json](server.json) passes the
-live Registry validator. Official Registry publication is tracked in
-[issue #20](https://github.com/sergey-goncharenko/redpill-mcp/issues/20).
+[`io.github.sergey-goncharenko/redpill`](https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.sergey-goncharenko%2Fredpill).
+[server.json](server.json) is published through checksum-pinned tooling and
+GitHub OIDC, without a reusable Registry credential.
 
 ## Defaults
 
