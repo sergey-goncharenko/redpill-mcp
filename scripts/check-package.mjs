@@ -8,7 +8,9 @@ const output = execFileSync(
   [npmCli, "pack", "--dry-run", "--json", "--ignore-scripts"],
   { encoding: "utf8" },
 );
-const [pack] = JSON.parse(output);
+const parsed = JSON.parse(output);
+const pack = Array.isArray(parsed) ? parsed[0] : parsed;
+assert(pack, "npm pack returned no package metadata");
 const files = pack.files.map((file) => file.path);
 
 const required = [
