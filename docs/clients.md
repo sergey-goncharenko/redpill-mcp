@@ -25,12 +25,14 @@ local launch:
 | --- | --- | --- | --- |
 | VS Code | [vscode_mcp.json](../examples/vscode_mcp.json) | JSON shape and safe defaults | Pending in-host test |
 | Claude Desktop | [claude_desktop_config.json](../examples/claude_desktop_config.json) | JSON shape and safe defaults | Pending in-host test |
-| Copilot CLI | [copilot_cli.json](../examples/copilot_cli.json) | JSON shape and safe defaults | Pending in-host test |
+| Copilot CLI | [copilot_cli.json](../examples/copilot_cli.json) | JSON shape and safe defaults | Verified on Windows with `mcp add`, `get`, and `list` |
 
 The published stdio package passes a real MCP handshake and exposes all six
-tools. Host-specific verification remains tracked in
+tools. Copilot CLI accepted the published command and safe defaults in an
+isolated user configuration on 2026-08-20 without invoking a model. Remaining
+host-specific verification is tracked in
 [#4](https://github.com/sergey-goncharenko/redpill-mcp/issues/4); the table does
-not claim host compatibility before each named host launches it.
+not claim compatibility for untested hosts.
 
 ## Windows command resolution
 
