@@ -20,9 +20,10 @@ procedure was:
 The workflow checks that the entered version matches `package.json`, runs the
 same release gate as CI, and publishes with `--provenance --access public`.
 
-## Switch to trusted publishing
+## Trusted publishing
 
-Immediately after the first package exists:
+Trusted publishing is configured for `publish.yml`; no npm token is stored in
+GitHub. The completed migration was:
 
 1. Open the `redpill-mcp` package settings on npm.
 2. Add a GitHub Actions trusted publisher with:
@@ -31,8 +32,9 @@ Immediately after the first package exists:
    - workflow filename: `publish.yml`
    - allowed action: `npm publish`
 3. Delete the GitHub `NPM_TOKEN` secret and revoke the npm bootstrap token.
-4. Run the workflow for future versions without a package token. npm uses the
-   workflow's OIDC identity and creates provenance automatically.
+
+Future workflow runs use npm's OIDC trust relationship and create provenance
+automatically. Do not add a replacement package token.
 
 ## Publish to the MCP Registry
 
