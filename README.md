@@ -53,6 +53,18 @@ GitHub OIDC, without a reusable Registry credential.
 
 See [PRIVACY.md](PRIVACY.md) for the exact data boundary.
 
+## Early testers
+
+The first operator cohort is open in
+[#21](https://github.com/sergey-goncharenko/redpill-mcp/issues/21). Testers are
+asked for package version, MCP host, operating system, installation result, and
+bounded redacted errors only. Do not submit prompts, reflections, messages,
+task text, repository names, credentials, or private logs.
+
+The 60-second synthetic demo and reusable launch kit are
+[#22](https://github.com/sergey-goncharenko/redpill-mcp/issues/22) and are
+[`up for grabs`](https://github.com/sergey-goncharenko/redpill-mcp/issues?q=is%3Aissue+is%3Aopen+label%3A%22up+for+grabs%22).
+
 ## Optional skill
 
 [skills/redpill/SKILL.md](skills/redpill/SKILL.md) is a portable agent skill for

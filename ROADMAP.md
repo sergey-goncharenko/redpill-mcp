@@ -16,6 +16,8 @@ Goal: a trustworthy self-hosted package with local-only defaults.
 - Document configuration for major MCP clients.
 - Ship the optional Redpill skill as a separately understandable artifact.
 - Add a compatibility matrix for supported clients and transports.
+- Produce a synthetic, captioned demo and launch kit ([#22](https://github.com/sergey-goncharenko/redpill-mcp/issues/22)).
+- Validate installation with the first 10 opt-in operators, without telemetry ([#21](https://github.com/sergey-goncharenko/redpill-mcp/issues/21)).
 
 ## v0.2 - Consent telemetry
 
