@@ -9,8 +9,13 @@ const output = execFileSync(
   { encoding: "utf8" },
 );
 const parsed = JSON.parse(output);
-const pack = Array.isArray(parsed) ? parsed[0] : parsed;
-assert(pack, "npm pack returned no package metadata");
+const candidates = Array.isArray(parsed)
+  ? parsed
+  : Array.isArray(parsed?.files)
+    ? [parsed]
+    : Object.values(parsed).filter((entry) => Array.isArray(entry?.files));
+assert.equal(candidates.length, 1, "npm pack returned unexpected package metadata");
+const [pack] = candidates;
 const files = pack.files.map((file) => file.path);
 
 const required = [
