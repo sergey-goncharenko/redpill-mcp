@@ -19,6 +19,7 @@ const required = [
   "dist/relay/server.js",
   "docs/clients.md",
   "docs/dependency-security.md",
+  "docs/releasing.md",
   "examples/vscode_mcp.json",
   "examples/claude_desktop_config.json",
   "examples/copilot_cli.json",

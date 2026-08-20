@@ -100,6 +100,8 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) before proposing behavior, telemetry, or
 discovery changes. Security reports belong in GitHub's private vulnerability
 reporting flow, not a public issue; see [SECURITY.md](SECURITY.md).
 
+Maintainer release steps are documented in [docs/releasing.md](docs/releasing.md).
+
 ## License
 
 MIT
