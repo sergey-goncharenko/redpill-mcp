@@ -3,6 +3,7 @@ import { randomUUID } from "node:crypto";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { createMcpServer } from "./createMcpServer.js";
 import { getHomeDir } from "./storage.js";
+import { VERSION } from "./version.js";
 
 const PORT = Number(process.env.PORT ?? 8788);
 const TOKEN = process.env.MCP_TOKEN ?? process.env.RELAY_TOKEN ?? "";
@@ -95,7 +96,7 @@ const httpServer = http.createServer(async (req, res) => {
 
 httpServer.listen(PORT, () => {
   process.stderr.write(
-    `redpill-mcp v0.1.0 (http) listening on :${PORT}\n` +
+    `redpill-mcp v${VERSION} (http) listening on :${PORT}\n` +
       `auth: ${TOKEN ? "bearer-token" : "OPEN"}\n` +
       `storage: ${getHomeDir()}\n` +
       `observe-only: ${OBSERVE_ONLY}\n` +

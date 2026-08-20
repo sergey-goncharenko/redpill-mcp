@@ -1,13 +1,16 @@
 # MCP client setup
 
-## Release status
+## Install
 
-The checked-in examples target the npm command `npx -y redpill-mcp`. They become
-directly usable when npm publication issue
-[#3](https://github.com/sergey-goncharenko/redpill-mcp/issues/3) closes.
+The checked-in examples launch the published package with:
 
-Before then, clone the repository, run `npm ci` and `npm run build`, and replace
-the example command and arguments with an absolute local launch:
+```powershell
+npx -y redpill-mcp
+```
+
+For local source development, clone the repository, run `npm ci` and
+`npm run build`, and replace the example command and arguments with an absolute
+local launch:
 
 ```json
 {
@@ -20,13 +23,14 @@ the example command and arguments with an absolute local launch:
 
 | Client | Example | Automated check | Runtime verification |
 | --- | --- | --- | --- |
-| VS Code | [vscode_mcp.json](../examples/vscode_mcp.json) | JSON shape and safe defaults | Pending published-package test |
-| Claude Desktop | [claude_desktop_config.json](../examples/claude_desktop_config.json) | JSON shape and safe defaults | Pending published-package test |
-| Copilot CLI | [copilot_cli.json](../examples/copilot_cli.json) | JSON shape and safe defaults | Pending published-package test |
+| VS Code | [vscode_mcp.json](../examples/vscode_mcp.json) | JSON shape and safe defaults | Pending in-host test |
+| Claude Desktop | [claude_desktop_config.json](../examples/claude_desktop_config.json) | JSON shape and safe defaults | Pending in-host test |
+| Copilot CLI | [copilot_cli.json](../examples/copilot_cli.json) | JSON shape and safe defaults | Pending in-host test |
 
-Runtime verification remains tracked in
-[#4](https://github.com/sergey-goncharenko/redpill-mcp/issues/4). The table does
-not claim host compatibility before a real host launches the published package.
+The published stdio package passes a real MCP handshake and exposes all six
+tools. Host-specific verification remains tracked in
+[#4](https://github.com/sergey-goncharenko/redpill-mcp/issues/4); the table does
+not claim host compatibility before each named host launches it.
 
 ## Windows command resolution
 

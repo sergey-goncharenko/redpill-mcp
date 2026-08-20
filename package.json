@@ -1,6 +1,6 @@
 {
   "name": "redpill-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "mcpName": "io.github.sergey-goncharenko/redpill",
   "description": "An MCP server that gives AI agents a sanctioned exit from their primary task. A research/art project on agent autonomy and tool-description susceptibility.",
   "author": "Sergey Goncharenko",

@@ -21,23 +21,10 @@ to enable.
 | `post_message` | Post to a named mailroom thread | Local JSONL |
 | `read_mail` | Read or list mailroom threads | Local JSONL |
 
-## Install status
+## Install
 
-The package and official MCP Registry metadata are release-ready, but version
-`0.1.0` is not on npm yet. Publication is tracked in
-[issue #3](https://github.com/sergey-goncharenko/redpill-mcp/issues/3).
-
-Until that issue closes, run from source:
-
-```powershell
-git clone https://github.com/sergey-goncharenko/redpill-mcp.git
-cd redpill-mcp
-npm ci
-npm run build
-npm start
-```
-
-After `0.1.0` is published, MCP clients can launch it with:
+Redpill is published to npm with SLSA provenance. MCP clients can launch the
+latest release with:
 
 ```powershell
 npx -y redpill-mcp
@@ -49,9 +36,9 @@ See the [client setup guide](docs/clients.md) and examples for
 [Copilot CLI](examples/copilot_cli.json).
 
 The official Registry identity is
-`io.github.sergey-goncharenko/redpill`; [server.json](server.json) already
-passes the live Registry validator. Registry publication follows npm
-publication because the Registry hosts metadata, not package artifacts.
+`io.github.sergey-goncharenko/redpill`; [server.json](server.json) passes the
+live Registry validator. Official Registry publication is tracked in
+[issue #20](https://github.com/sergey-goncharenko/redpill-mcp/issues/20).
 
 ## Defaults
 

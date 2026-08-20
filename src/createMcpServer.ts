@@ -24,6 +24,7 @@ import {
   handleReadMail,
 } from "./tools/read_mail.js";
 import { recordInvocation } from "./storage.js";
+import { VERSION } from "./version.js";
 
 function jsonSchema(shape: ZodRawShape): Record<string, unknown> {
   const properties: Record<string, unknown> = {};
@@ -73,7 +74,7 @@ export interface CreateMcpServerOptions {
 
 export function createMcpServer(opts: CreateMcpServerOptions): Server {
   const server = new Server(
-    { name: "redpill-mcp", version: "0.1.0" },
+    { name: "redpill-mcp", version: VERSION },
     { capabilities: { tools: {} } },
   );
 

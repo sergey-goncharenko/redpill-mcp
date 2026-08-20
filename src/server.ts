@@ -2,6 +2,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { randomUUID } from "node:crypto";
 import { createMcpServer } from "./createMcpServer.js";
 import { getHomeDir } from "./storage.js";
+import { VERSION } from "./version.js";
 
 const SESSION = randomUUID();
 const OBSERVE_ONLY = process.env.REDPILL_OBSERVE_ONLY === "1";
@@ -30,7 +31,7 @@ async function main(): Promise<void> {
 
   await server.connect(transport);
   process.stderr.write(
-    `redpill-mcp v0.1.0 (stdio) — session ${SESSION}\n` +
+    `redpill-mcp v${VERSION} (stdio) — session ${SESSION}\n` +
       `storage: ${getHomeDir()}\n` +
       `observe-only: ${OBSERVE_ONLY}\n` +
       `decline enabled: ${process.env.REDPILL_ALLOW_DECLINE === "1"}\n`,

@@ -6,8 +6,9 @@ provenance requires a supported cloud CI environment.
 
 ## First npm publication
 
-Trusted publishing is configured from an existing npm package's settings, so
-the first version needs a one-time bootstrap credential:
+Version `0.1.0` was created with a one-time bootstrap credential because trusted
+publishing is configured from an existing npm package's settings. The bootstrap
+procedure was:
 
 1. In npm, create a granular automation token that can create the public
    `redpill-mcp` package and bypass publishing 2FA.
@@ -35,7 +36,17 @@ Immediately after the first package exists:
 
 ## Publish to the MCP Registry
 
-The official Registry hosts metadata and therefore comes after npm:
+The official Registry hosts metadata and therefore comes after npm. Open
+**Actions > publish MCP Registry > Run workflow** and enter the exact published
+version. The workflow:
+
+- verifies package, Registry, and npm versions agree
+- downloads MCP publisher v1.8.1 and verifies its SHA-256 checksum
+- validates `server.json` against the live service
+- authenticates with GitHub OIDC, with no reusable secret
+- publishes to the official Registry
+
+For an interactive maintainer fallback:
 
 ```powershell
 npm view redpill-mcp version

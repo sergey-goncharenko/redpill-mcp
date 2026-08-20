@@ -1,0 +1,47 @@
+name: publish MCP Registry
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Exact package and server version to publish
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - name: Verify requested and published versions
+        shell: bash
+        run: |
+          test "$(node --print "require('./package.json').version")" = "${{ inputs.version }}"
+          test "$(node --print "require('./server.json').version")" = "${{ inputs.version }}"
+          test "$(npm view "redpill-mcp@${{ inputs.version }}" version)" = "${{ inputs.version }}"
+
+      - name: Install checksum-pinned MCP publisher
+        shell: bash
+        run: |
+          curl --fail --location --output mcp-publisher.tar.gz \
+            https://github.com/modelcontextprotocol/registry/releases/download/v1.8.1/mcp-publisher_linux_amd64.tar.gz
+          echo "a06c9096dcb9727c13555b6be26c7effa707b01f06a4c561ba7a3635443cf2cc  mcp-publisher.tar.gz" | sha256sum --check
+          tar xzf mcp-publisher.tar.gz mcp-publisher
+
+      - name: Validate Registry metadata
+        run: ./mcp-publisher validate
+
+      - name: Authenticate with GitHub OIDC
+        run: ./mcp-publisher login github-oidc
+
+      - name: Publish to the official MCP Registry
+        run: ./mcp-publisher publish
