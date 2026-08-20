@@ -29,7 +29,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "node scripts/build.mjs",
     "dev": "tsx src/server.ts",
     "start": "node dist/server.js",
     "http": "tsx src/http-server.ts",
@@ -66,7 +66,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.20.1",
-    "tsup": "^8.5.1",
+    "esbuild": "^0.28.2",
     "tsx": "^4.23.12",
     "typescript": "^5.9.3",
     "vitest": "^4.1.11"
