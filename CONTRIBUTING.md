@@ -8,7 +8,9 @@ and the consent-first hosted roadmap.
 1. Check the [roadmap](ROADMAP.md) and open milestones.
 2. Search existing issues before opening a new one.
 3. Comment on an issue before starting substantial work.
-4. Keep pull requests narrow and include tests for behavioral changes.
+4. Fork the repository and open a pull request from your fork. Repository access
+    is not needed to contribute.
+5. Keep pull requests narrow and include tests for behavioral changes.
 
 ```powershell
 npm ci
@@ -63,6 +65,16 @@ A pull request is ready when:
 - Privacy-impacting fields are documented by name.
 - Defaults remain local and fail closed.
 - Documentation describes operator-visible behavior without marketing claims.
+
+All paths have a code owner. The maintainer reviews and merges accepted changes;
+contributors are not given repository or release access. Changes to workflows,
+dependencies, package scripts, runtime code, or release metadata should be kept
+out of documentation-only pull requests and proposed separately when necessary.
+
+Pull requests from forks use synthetic data only. Do not commit generated
+binaries, credentials, private logs, prompts, transcripts, machine-specific
+paths, or screenshots containing identifiers. External workflow runs require
+maintainer approval before GitHub Actions executes them.
 
 CI runs this gate on Linux, Windows, and macOS. Production dependencies must
 pass `npm audit --omit=dev`; see
