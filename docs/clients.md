@@ -23,7 +23,7 @@ local launch:
 
 | Client | Example | Automated check | Runtime verification |
 | --- | --- | --- | --- |
-| VS Code | [vscode_mcp.json](../examples/vscode_mcp.json) | JSON shape and safe defaults | Pending in-host test |
+| VS Code | [vscode_mcp.json](../examples/vscode_mcp.json) and [vscode_add_mcp.json](../examples/vscode_add_mcp.json) | JSON shape and safe defaults | Configuration registration verified on Windows with VS Code 1.121.0; no model was invoked |
 | Claude Desktop | [claude_desktop_config.json](../examples/claude_desktop_config.json) | JSON shape and safe defaults | Pending in-host test |
 | Copilot CLI | [copilot_cli.json](../examples/copilot_cli.json) | JSON shape and safe defaults | Verified on Windows with `mcp add`, `get`, and `list` |
 
@@ -33,6 +33,13 @@ isolated user configuration on 2026-08-20 without invoking a model. Remaining
 host-specific verification is tracked in
 [#4](https://github.com/sergey-goncharenko/redpill-mcp/issues/4); the table does
 not claim compatibility for untested hosts.
+
+## VS Code command-line registration
+
+VS Code also accepts a named server definition with `--add-mcp`. The
+[`vscode_add_mcp.json`](../examples/vscode_add_mcp.json) example is the same
+safe stdio configuration in that command's input shape. Review it before
+registering it with your chosen VS Code profile.
 
 ## Windows command resolution
 
