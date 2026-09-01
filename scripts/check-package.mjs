@@ -28,6 +28,7 @@ const required = [
   "docs/dependency-security.md",
   "docs/releasing.md",
   "examples/vscode_mcp.json",
+  "examples/vscode_add_mcp.json",
   "examples/claude_desktop_config.json",
   "examples/copilot_cli.json",
   "server.json",
